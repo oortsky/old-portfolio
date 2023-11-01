@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Required Meta-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Title-->
+    <title>Portofolio | BayuAprio.</title>
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <!--style.css-->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all" />
+    <!--Tailwind.css-->
+    <link rel="stylesheet" href="/modules/base.min.css" />
+    <link rel="stylesheet" href="/modules/components.min.css" />
+    <link rel="stylesheet" href="/modules/tailwind-dark.min.css" />
+    <link rel="stylesheet" href="/modules/tailwind-experimental.min.css" />
+    <link rel="stylesheet" href="/modules/tailwind.min.css" />
+    <link rel="stylesheet" href="/modules/utilities.min.css" />
+    <!--<link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet"/>-->
+    <!--Alpine.JS-->
+    <!--<script src="//unpkg.com/alpinejs" defer></script>-->
+    <!-- Alpine Plugins -->
+    <!--<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>-->
+    <!-- Alpine Core -->
+    <!--<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>-->
+    <!--Feather.icon-->
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body>
+    <!--Start body-->
+    <!--Navbar section start-->
+    <div x-data="{ open: false }" >
+      <header class="fixed top-0 left-0 z-50 flex w-full items-center bg-transparent">
+        <div class="container">
+        <nav class="flex items-center justify-between p-6 bg-white bg-opacity-80 rounded-b-lg shadow-md py-5 lg:opacity-90 lg:max-w-full lg:rounded-none lg:shadow-none lg:dark:bg-transparent">
+    <!--Navbar brand section start-->
+          <div class="pl-4 lg:pl-20 flex md:flex-1">
+            <a href="." @click="window.location.reload(true);" class="-m-1.5">
+              <h1 class="text-2xl font-primary leading-6 text-primary">BayuAprio.</h1>
+            </a>
+          </div>
+    <!--Navbar brand section end-->
+    <!--Toggle data-->
+    <div x-data="{toggle: false, toggle2: false}">
+      <div x-data="{ openTab: 1, activeClasses: 'text-primary', inactiveClasses: 'text-dark' }">
+    <!--Toggle data-->
+    <!--Navbar menu sm section start-->
+          <div class="flex lg:hidden">
+            <button  @click="open = ! open" class="-m-2.5 inline-flex items-center justify-center p-2.5">
+              <span class="sr-only">open hamburger menu</span>
+              <i x-show="!open" data-feather="menu"></i>
+              <i x-show="open" data-feather="x"></i>
+            </button>
+            <div x-show="open" x-transition.duration.500ms @click.outside="open = false" class="absolute right-6 z-10 mt-7 w-56 rounded-md bg-white shadow-2xl ring-0 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+              <div class="py-1" role="none">
+                <a @click="openTab = 1" :class="openTab === 1 ? activeClasses : inactiveClasses" href="#home" class="page-scroll text-dark block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Home</a>
+                <a @click="openTab = 2" :class="openTab === 2 ? activeClasses : inactiveClasses" href="#about" class="page-scroll text-dark block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">About Me</a>
+                <a @click="openTab = 3" :class="openTab === 3 ? activeClasses : inactiveClasses" href="#skills" class="page-scroll text-dark block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Skills</a>
+                <a @click="openTab = 4" :class="openTab === 4 ? activeClasses : inactiveClasses" href="#portofolio" class="page-scroll text-dark block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Portofolio</a>
+                <a @click="openTab = 5" :class="openTab === 5 ? activeClasses : inactiveClasses" href="#blog" class="page-scroll text-dark block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Blog</a>
+                <a @click="openTab = 6" :class="openTab === 6 ? activeClasses : inactiveClasses" href="#contacts" class="page-scroll text-dark block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Contacts</a>
+                <a @click="openTab = 7" :class="openTab === 7 ? activeClasses : inactiveClasses" href="#resume" class="page-scroll text-dark block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Resume</a>
+                <div class="px-4 space-y-2.5 border-t-2 border-gray-200 flex">
+                  <p class="pr-2 py-2 text-gray-700 block text-sm">Switch Mode</p>
+                  <button class="flex items-center transition ease-in-out duration-300 w-10 h-4 bg-gray-200 rounded-full focus:outline-none" :class="{ 'bg-gray-700': toggle2 }" @click="toggle2 = !toggle2">
+                    <div class="transition ease-in-out duration-300 rounded-full h-5 w-5 bg-white shadow border" :class="{ 'transform translate-x-full ': toggle2 }">
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+    <!--Navbar menu sm section end-->
+    <!--Navbar menu md section start-->
+          <div class="hidden relative lg:flex md:gap-x-5">
+            <div>
+              <a @click="openTab = 1" :class="openTab === 1 ? activeClasses : inactiveClasses" class="page-scroll text-sm font-semibold leading-6 text-dark inline-flex" href="#home">Home</a>
+            </div>
+            <div>
+              <a @click="openTab = 2" :class="openTab === 2 ? activeClasses : inactiveClasses" class="page-scroll text-sm font-semibold leading-6 text-dark inline-flex" href="#about">About Me</a>
+            </div>
+            <div>
+              <a @click="openTab = 3" :class="openTab === 3 ? activeClasses : inactiveClasses" class="page-scroll text-sm font-semibold leading-6 text-dark inline-flex" href="#skills">Skills</a>
+            </div>
+            <div>
+              <a @click="openTab = 4" :class="openTab === 4 ? activeClasses : inactiveClasses" class="page-scroll text-sm font-semibold leading-6 text-dark inline-flex" href="#portofolio">Portofolio</a>
+            </div>
+            <div>
+              <a @click="openTab = 5" :class="openTab === 5 ? activeClasses : inactiveClasses" class="page-scroll text-sm font-semibold leading-6 text-dark inline-flex" href="#blog">Blog</a>
+            </div>
+            <div>
+              <a @click="openTab = 6" :class="openTab === 6 ? activeClasses : inactiveClasses" class="page-scroll text-sm font-semibold leading-6 text-dark inline-flex" href="#contacts">Contacts</a>
+            </div>
+            <div>
+              <a @click="openTab = 7" :class="openTab === 7 ? activeClasses : inactiveClasses" class="page-scroll text-sm font-semibold leading-6 text-dark inline-flex" href="#resume">Resume</a>
+            </div>
+            <div class="pr-4 lg:pr-20 flex pt-1">
+              <button class="flex items-center transition ease-in-out duration-300 w-10 h-4 bg-gray-200 rounded-full focus:outline-none" :class="{ 'bg-gray-700': toggle2 }" @click="toggle2 = !toggle2">
+                <div class="transition ease-in-out duration-300 rounded-full h-5 w-5 bg-white shadow border" :class="{ 'transform translate-x-full ': toggle2 }">
+                </div>
+              </button>
+            </div>
+          </div>
+    <!--Toggle data-->
+          </div>
+          </div>
+    <!--Toggle data-->
+        </nav>
+        </div>
+      </header>
+    </div>
+    <!--Navbar section end-->
+    <!--Hero section Start-->
+    <section id="home" class="pt-28 lg:pt-16">
+      <div class="container px-4 lg:px-20">
+        <div class="flex flex-wrap">
+          <div class="w-full self-center px-4 lg:w-1/2">
+            <h1 class="text-base font-semibold text-primary md:text-xl">Halo Everyone 👋,  I'am <span class="mt-1 block text-4xl text-dark dark:text-white font-bold lg:text-5xl">Bayu Aprio</span></h1>
+            <h2 class="mb-5 text-lg font-medium text-secondary lg:text-2xl">Graphic Designer & <span class="text-dark">Web Developer</span></h2>
+            <p class="mb-10 font-medium leading-relaxed text-secondary">We have to be <span class="font-bold text-dark">"CIP"</span> ( Creative, Innovative, and Productive )</p>
+            <a class="rounded-full py-3 px-8 bg-gray-400 text-base font-semibold text-white transition-duration-300 ease-in-out hover:opacity-80 hover:shadow-lg" href="#">Contact Me</a>
+          </div>
+          <div class="w-full self-end px-4 lg:w-1/2">
+            <div class="relative mt-10 lg:right-0 lg:mt-9">
+              <img class="relative z-10 mx-auto max-w-full" src="assets/img/oortsky.png" alt="Oortsky" />
+              <span class="absolute top-0 translate-x-1">
+                <svg width="400" height="400" class="w-72 h-72 lg:w-full lg:h-full" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="#9ca3af" d="M29.3,-41.2C43.4,-36.5,64,-37.6,69,-30.4C74,-23.2,63.4,-7.8,58.1,6.3C52.9,20.4,53,33.2,47.4,42.8C41.8,52.5,30.5,58.9,19,60.4C7.4,61.8,-4.3,58.3,-16.9,55.5C-29.4,52.7,-42.8,50.7,-49.1,42.9C-55.4,35,-54.6,21.4,-46.8,12.6C-38.9,3.8,-24,-0.2,-23.3,-14.4C-22.7,-28.6,-36.2,-53,-34.7,-63.4C-33.2,-73.8,-16.6,-70.1,-4.5,-63.1C7.6,-56.1,15.2,-45.8,29.3,-41.2Z" transform="translate(100 100) scale(1.1)" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Hero section End-->
+    <!--About section Start-->
+    <section id="about" class="pt-36 mt-16 pb-36 bg-light-1 lg:mt-0 lg:pb-28 lg:pt-28">
+      <div class="container px-4 lg:px-20">
+        <div class="flex flex-wrap">
+          <div class="mb-10 w-full px-4 lg:mb-3 lg:w-1/2">
+            <h4 class="mb-3 text-lg font-bold uppercase text-primary">About Me</h4>
+            <h2 class="mb-5 max-w-md text-3xl font-bold text-dark lg:text-4xl">Introduction</h2>
+            <p class="max-w-xl text-base font-medium text-secondary lg:text-lg">Hi! My name is Bayu Aprio Pamungkas. I am a graduate student in Automotive Engineering. But I like Programming and Graphic Design.</p>
+          </div>
+          <div class="w-full px-4 lg:w-1/2">
+            <h3 class="mb-4 text-2xl font-semibold text-dark dark:text-white lg:pt-10 lg:text-3xl">Let's be friends </h3>
+            <p class="mb-6 text-base font-medium text-secondary lg:text-lg">Let's collaborate with it we can develop our skills and social connections.
+            </p>
+            <div class="flex items-center">
+              <!-- Youtube -->
+              <a
+                href="https://youtube.com/@OORTSKY"
+                target="_blank"
+                class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-dark hover:border-primary hover:bg-primary hover:text-white"
+              >
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>YouTube</title>
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a href="https://instagram.com/oortsky" target="_blank" class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-dark hover:border-primary hover:bg-primary hover:text-white"
+              >
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Instagram</title>
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+                  />
+                </svg>
+              </a>
+              <!-- Twitter -->
+              <a href="https://twitter.com/oortsky" target="_blank" class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-dark hover:border-primary hover:bg-primary hover:text-white">
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Twitter</title>
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                  />
+                </svg>
+              </a>
+              <!-- Tiktok -->
+              <a
+                href="https://tiktok.com/@oortsky_"
+                target="_blank"
+                class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-dark hover:border-primary hover:bg-primary hover:text-white"
+              >
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>TikTok</title>
+                  <path
+                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                  />
+                </svg>
+              </a>
+              <!-- LinkedIn -->
+              <a href="https://linkedin.com/in/bayuaprio" target="_blank" class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-dark hover:border-primary hover:bg-primary hover:text-white">
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>LinkedIn</title>
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--About section End-->
+    <!--Skill section Start-->
+    <section id="skills" class="pt-36 pb-36 bg-light-2 lg:pt-28 lg:pb-28">
+      <div class="container px-4 lg:px-20">
+        <div class="flex flex-wrap">
+          <div class="mb-10 w-full px-4 lg:mb-3 lg:w-1/2">
+            <h4 class="mb-3 text-lg font-bold uppercase text-primary">Skills</h4>
+            <h2 class="mb-2 max-w-md text-2xl font-bold text-dark lg:text-3xl">Language</h2>
+            <div class="flex flex-wrap ">
+            <a href="https://www.w3schools.com/html/" class="bg-red-100 text-red-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">HTML 5</a>
+            <a href="https://www.w3schools.com/css/" class="bg-blue-100 text-blue-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">CSS 3</a>
+            <a href="https://www.javascript.com/" class="bg-yellow-100 text-yellow-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">JavaScript</a>
+            <a href="https://www.php.net/" class="bg-blue-100 text-blue-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">PHP</a>
+            <a href="https://www.python.org/" class="bg-green-100 text-green-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Python</a>
+            </div>
+            <h2 class="mb-2 mt-6 max-w-md text-2xl font-bold text-dark lg:text-3xl">Framework</h2>
+            <div class="flex flex-wrap">
+            <a href="https://www.codeigniter.com/" class="bg-red-100 text-red-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">CodeIgniter</a>
+            <a href="https://getbootstrap.com/" class="bg-blue-100 text-blue-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Boostrap 5</a>
+            <a href="https://tailwindcss.com/" class="bg-yellow-100 text-yellow-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Tailwind</a>
+            <a href="https://alpinejs.dev/" class="bg-indigo-100 text-indigo-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-indigo-900 dark:text-indigo-300">Alpine JS</a>
+            <a href="https://sweetalert2.github.io/" class="bg-pink-100 text-pink-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-pink-900 dark:text-pink-300">SweetAlert</a>
+            <a href="https://bulma.io/" class="bg-green-100 text-green-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Bulma</a>
+            </div>
+            <h2 class="mb-2 mt-6 max-w-md text-2xl font-bold text-dark lg:text-3xl">Database</h2>
+            <div class="flex flex-wrap">
+            <a href="https://www.mysql.com/" class="bg-yellow-100 text-yellow-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">MySQL</a>
+            <a href="https://www.mongodb.com/" class="bg-green-100 text-green-800 text-base font-medium mt-3 mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">MongoDB</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Skill section End-->
+    <!--Portofolio section Start-->
+    <section id="portofolio" class="pt-36 pb-36 bg-light-1 lg:pt-28 lg:pb-28">
+      <div class="container px-4 lg:px-20">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-16 max-w-xl text-center">
+            <h4 class="mb-2 text-lg font-semibold text-primary">Portofolio</h4>
+            <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">Recent Projects</h2>
+            <p class="text-md font-medium text-secondary md:text-lg">The following are some of the projects I've made.</p>
+          </div>
+        </div>
+        <div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12">
+          <div x-data="{ shown: false }" x-intersect="shown = true" class="mb-12 p-4 md:w-1/2">
+            <div x-show="shown" x-transition.duration.500ms class="overflow-hidden rounded-md shadow-md">
+              <img class="w-full" src="assets/img/portofolio/1.png" alt="MindCard Edutech" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">MindCard | Edutech</h3>
+            <p class="text-base font-medium text-secondary">This website is Edutech, where you can hone your skills, from soft skills to hard skills</p>
+          </div>
+          <div x-data="{ shown: false }" x-intersect="shown = true" class="mb-12 p-4 md:w-1/2">
+            <div x-show="shown" x-transition.duration.500ms class="overflow-hidden rounded-md shadow-md">
+              <img class="w-full" src="assets/img/portofolio/2.png" alt="Top-up E-commerce" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">Top-up | E-commerce [Draft]</h3>
+            <p class="text-base font-medium text-secondary">This is an e-commerce website for purchasing in-game items</p>
+          </div>
+          <div x-data="{ shown: false }" x-intersect="shown = true" class="mb-12 p-4 md:w-1/2">
+            <div x-show="shown" x-transition.duration.500ms class="overflow-hidden rounded-md shadow-md">
+              <img class="w-full" src="assets/img/portofolio/3.png" alt="Hit Masbro Game" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">Hit Masbro | Game</h3>
+            <p class="text-base font-medium text-secondary">this is a Whack-A-Mole game in a different style</p>
+          </div>
+          <div x-data="{ shown: false }" x-intersect="shown = true" class="mb-12 p-4 md:w-1/2">
+            <div x-show="shown" x-transition.duration.500ms class="overflow-hidden rounded-md shadow-md">
+              <img class="w-full" src="assets/img/portofolio/4.png" alt="CMD-24 Bot Discord" />
+            </div>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">CMD-24 | Discord Bot</h3>
+            <p class="text-base font-medium text-secondary">This is a discord bot for viewing game server status and controlling console servers</p>
+          </div>
+        </div>
+        <div class="w-full px-4">
+          <div class="mx-auto mb-16 max-w-xl text-center">
+            <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">Gallery Design</h2>
+            <p class="text-md font-medium text-secondary md:text-lg">These are some of my designs</p>
+          </div>
+        </div>
+        <div class="flex w-full flex-wrap justify-center lg:justify-between px-4 xl:mx-auto xl:w-10/12">
+          <div x-data="{ shown: false }" x-intersect="shown = true" class="mb-8 p-4 md:w-64">
+            <div x-show="shown" x-transition.duration.500ms class="overflow-hidden rounded-md shadow-md">
+              <img class="w-64" src="assets/img/gallery/1.png" alt="Design 1" />
+            </div>
+          </div>
+          <div x-data="{ shown: false }" x-intersect="shown = true" class="mb-8 p-4 md:w-64">
+            <div x-show="shown" x-transition.duration.500ms class="overflow-hidden rounded-md shadow-md">
+              <img class="w-64" src="assets/img/gallery/2.png" alt="Design 2" />
+            </div>
+          </div>
+          <div x-data="{ shown: false }" x-intersect="shown = true" class="mb-8 p-4 md:w-64">
+            <div x-show="shown" x-transition.duration.500ms class="overflow-hidden rounded-md shadow-md">
+              <img class="w-64" src="assets/img/gallery/3.png" alt="Design 3" />
+            </div>
+          </div>
+          <div x-data="{ shown: false }" x-intersect="shown = true" class="mb-8 p-4 md:w-64">
+            <div x-show="shown" x-transition.duration.500ms class="overflow-hidden rounded-md shadow-md">
+              <img class="w-64" src="assets/img/gallery/4.png" alt="Design 4" />
+            </div>
+          </div>
+          <div x-data="{ shown: false }" x-intersect="shown = true" class="mb-8 p-4 md:w-64">
+            <div x-show="shown" x-transition.duration.500ms class="overflow-hidden rounded-md shadow-md">
+              <img class="w-64" src="assets/img/gallery/5.png" alt="Design 5" />
+            </div>
+          </div>
+          <div x-data="{ shown: false }" x-intersect="shown = true" class="mb-8 p-4 md:w-64">
+            <div x-show="shown" x-transition.duration.500ms class="overflow-hidden rounded-md shadow-md">
+              <img class="w-64" src="assets/img/gallery/6.png" alt="Design 6" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Portofolio section End-->
+    <!--Blog section Start-->
+    <section id="blog" class="bg-white pt-36 pb-36 lg:pt-28 lg:pb-28">
+      <div class="container px-4 lg:px-20">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-16 max-w-xl text-center">
+            <h4 class="mb-2 text-lg font-semibold text-primary">Blog</h4>
+            <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">Latest Posts</h2>
+            <p class="text-md font-medium text-secondary md:text-lg">These are some articles written by me</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap">
+          <div class="w-full px-4 lg:min-w-full xl:max-w-full">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg">
+              <img class="w-full" src="https://media.istockphoto.com/id/1423708201/photo/concept-of-artifical-intelligence.webp?b=1&s=170667a&w=0&k=20&c=ZKQcuTVObu_xQt6UyyajCl7JVUq4gYGcJpYU9_-Zzbc=" alt="AI" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white">AI Naik Tahta, Metaverse Jatuh Ke Jurang.</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Awal 2022 metaverse sedang naik pada trend, dimana big tech company atau bahkan startup tech berlomba-lomba mengembangkan metaverse, namun hal ini hanyalah bertanya sebentar.</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white hover:opacity-80">Read More</a>
+              </div>
+            </div>
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg">
+              <img class="w-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZnfuTneQ2OXLHpdsHKFDFBdtN0ty5YgmLXA&usqp=CAU" alt="AI" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white">The CIP.</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Halo Everyone 👋, Kali ini saya mau jelasin ke kalian tentang 3 hal yang harus kita lakukan. Karena 3 hal ini sangat berguna bagi karir kalian, yaitu Creative, Innovative, dan Productive.</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white hover:opacity-80">Read More</a>
+              </div>
+            </div>
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg">
+              <img class="w-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ89pym0jFAY4ZmmdhlvmhYNS_wFghIliSNiQ&usqp=CAU" alt="AI" />
+              <div class="py-8 px-6">
+                <h3>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary dark:text-white">Please Find Your Skill ‼️.</a>
+                </h3>
+                <p class="mb-6 text-base font-medium text-secondary">Seberapa pentingkah skill tambahan dalam karir?. Menurut saya skill itu sangat penting dalam karir karena dengan skill bisa menambah value dari diri kita.</p>
+                <a href="#" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white hover:opacity-80">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Blog section End-->
+    <!--Contact section Start-->
+    <section id="contacts" class="bg-light-1 pt-36 pb-36 lg:pt-28 lg:pb-28">
+      <div class="container px-4 lg:px-20">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-16 max-w-xl text-center">
+            <h4 class="mb-2 text-lg font-semibold text-primary">Contacts</h4>
+            <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">Contact Me</h2>
+            <p class="text-md font-medium text-secondary md:text-lg">Please contact me for collaboration or just friends.</p>
+          </div>
+        </div>
+        <form>
+          <div class="w-full lg:mx-auto lg:w-2/3">
+            <div class="mb-8 w-full px-4">
+              <label for="name" class="text-base font-bold text-primary">Name</label>
+              <input type="text" id="name" class="w-full rounded-md bg-white p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+            </div>
+            <div class="mb-8 w-full px-4">
+              <label for="email" class="text-base font-bold text-primary">Email</label>
+              <input type="email" id="email" class="w-full rounded-md bg-white p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+            </div>
+            <div class="mb-8 w-full px-4">
+              <label for="message" class="text-base font-bold text-primary">Message</label>
+              <textarea type="text" id="message" class="h-32 w-full rounded-md bg-white p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
+            </div>
+            <div class="w-full px-4">
+              <button class="w-full rounded-full bg-primary py-3 px-8 text-base font-semibold text-white transition duration-500 hover:opacity-80 hover:shadow-lg">Send</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!--Contact section End-->
+    <!--Resume section Start-->
+    <section id="resume" class="bg-light-2 pt-36 pb-36 lg:pt-28 lg:pb-28">
+      <div class="container px-4 lg:px-20">
+        <div class="w-full px-4">
+          <div class="mx-auto mb-16 max-w-xl text-center">
+            <h4 class="mb-2 text-lg font-semibold text-primary">Resume</h4>
+            <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">My Details</h2>
+            <p class="text-md font-medium text-secondary md:text-lg">Just for additional information about me.</p>
+          </div>
+        </div>
+        <div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12">
+          <div class="mb-5 p-4 md:w-full">
+            <div class="overflow-hidden rounded-md shadow-md">
+              <img class="w-full" src="assets/img/resume.png" alt="Resume" />
+            </div>
+          </div>
+        <a href="https://drive.proton.me/urls/XXD2TR67DW#jlV3SuYJbiYA" class="rounded-lg bg-primary py-2 px-4 text-sm font-medium text-white lg:text-base hover:opacity-80">Download</a>
+        </div>
+      </div>
+    </section>
+    <!--Resume section End-->
+    <!--Footer section Start-->
+    <footer class="bg-dark pt-24 pb-12">
+      <div class="px-4 lg:px-20">
+        <div class="flex flex-wrap">
+          <div class="mb-12 w-full px-4 font-medium text-light-2 md:w-1/3">
+            <h2 class="mb-5 text-4xl font-bold font-primary text-white">BayuAprio.</h2>
+            <h3 class="mb-2 text-2xl font-bold">Contacts Me</h3>
+            <p>OORTSKY@pm.me</p>
+            <p>Jl. Merpati 8 No.11</p>
+            <p>Bekasi</p>
+          </div>
+          <div class="mb-12 w-full px-4 md:w-1/3">
+            <h3 class="mb-5 text-xl font-semibold text-white">Writing Category</h3>
+            <ul class="text-light-1">
+              <li>
+                <a class="mb-3 inline-block text-base hover:text-primary" href="#">Programming</a>
+              </li>
+              <li>
+                <a class="mb-3 inline-block text-base hover:text-primary" href="#">Technology</a>
+              </li>
+              <li>
+                <a class="mb-3 inline-block text-base hover:text-primary" href="#">Skill</a>
+              </li>
+              <li>
+                <a class="mb-3 inline-block text-base hover:text-primary" href="#">Hobby</a>
+              </li>
+            </ul>
+          </div>
+          <div class="mb-12 w-full px-4 md:w-1/3">
+            <h3 class="mb-5 text-xl font-semibold text-white">Link</h3>
+            <ul class="text-light-1">
+              <li>
+                <a class="mb-3 inline-block text-base hover:text-primary" href="#home">Home</a>
+              </li>
+              <li>
+                <a class="mb-3 inline-block text-base hover:text-primary" href="#about">About Me</a>
+              </li>
+              <li>
+                <a class="mb-3 inline-block text-base hover:text-primary" href="#skills">Skills</a>
+              </li>
+              <li>
+                <a class="mb-3 inline-block text-base hover:text-primary" href="#portofolio">Portofolio</a>
+              </li>
+              <li>
+                <a class="mb-3 inline-block text-base hover:text-primary" href="#blog">Blog</a>
+              </li>
+              <li>
+                <a class="mb-3 inline-block text-base hover:text-primary" href="#contacts">Contacts</a>
+              </li>
+              <li>
+                <a class="mb-3 inline-block text-base hover:text-primary" href="#resume">Resume</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="w-full border-t border-gray-200 pt-10">
+          <div class="mb-5 flex items-center justify-center">
+              <!-- Youtube -->
+              <a
+                href="https://youtube.com/@OORTSKY"
+                target="_blank"
+                class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-white hover:border-primary hover:bg-primary hover:text-white"
+              >
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>YouTube</title>
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a
+                href="https://instagram.com/oortsky"
+                target="_blank"
+                class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-white hover:border-primary hover:bg-primary hover:text-white"
+              >
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Instagram</title>
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+                  />
+                </svg>
+              </a>
+              <!-- Twitter -->
+              <a
+                href="https://twitter.com/oortsky"
+                target="_blank"
+                class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-white hover:border-primary hover:bg-primary hover:text-white"
+              >
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>Twitter</title>
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                  />
+                </svg>
+              </a>
+              <!-- Tiktok -->
+              <a
+                href="https://tiktok.com/@oortsky_"
+                target="_blank"
+                class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-white hover:border-primary hover:bg-primary hover:text-white"
+              >
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>TikTok</title>
+                  <path
+                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+                  />
+                </svg>
+              </a>
+              <!-- LinkedIn -->
+              <a
+                href="https://linkedin.com/in/bayuaprio"
+                target="_blank"
+                class="mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-white hover:border-primary hover:bg-primary hover:text-white"
+              >
+                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <title>LinkedIn</title>
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+          </div>
+          <p class="mb-3 text-center text-xs font-medium text-gray-500">Made from <span class="text-pink-500">❤️</span> by <a class="font-bold text-primary" target="_blank" href="https://www.instagram.com/@oortsky">Bayu Aprio</a>, use <a class="font-bold text-blue-200" target="_blank" href="https://tailwindcss.com">Tailwind</a> & <a class="font-bold text-green-100" target="_blank" href="https://alpinejs.dev">Alpine JS</a></p>
+          <p class="text-center text-xs font-medium text-gray-500"> <span class="font-bold text-red-500">Info</span>: Coded using <span class="font-bold text-green-400">🤖 Android</span></p>
+        </div>
+      </div>
+    </footer>
+    <!--Footer section End-->
+    
+    <!--Alpine Module-->
+    <script src="/modules/cdn.min.js"></script>
+    <script src="/modules/module.cjs.min.js"></script>
+    <script src="/modules/module.esm.min.js"></script>
+    <!--Local Js-->
+    <script src="assets/js/script.js"></script>
+    <!--Feather Required-->
+    <script>
+    feather.replace()
+    </script>
+    <!--End Body-->
+  </body>
+</html>

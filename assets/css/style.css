@@ -1,0 +1,40 @@
+html {
+  scroll-behavior: smooth;
+}
+.text-dark {
+  color: #3c3c3c;
+}
+.text-primary {
+  color: #9ca3af;
+}
+.text-secondary {
+  color: #696B6F;
+}
+
+.text-light-1 {
+  color: #F6F6F6;
+}
+
+.text-light-2 {
+  color: #EDEDED;
+}
+
+.bg-light-1 {
+  background-color: #F6F6F6;
+}
+
+.bg-light-2 {
+  background-color: #EDEDED;
+}
+
+.bg-primary {
+  background-color: #9ca3af;
+}
+
+.bg-dark {
+  background-color: #3c3c3c;
+}
+
+.font-primary {
+  font-family: 'Poppins', sans-serif;
+}

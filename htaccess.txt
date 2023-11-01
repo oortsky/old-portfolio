@@ -1,0 +1,42 @@
+#IP Admin Access
+order deny,allow
+allow from 103.177.199.2
+deny from all
+
+#Rewrite everything to https
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Block one or more IP address.
+# Replace IP_ADDRESS_* with the IP you want to block
+
+<Limit GET POST>
+order allow,deny
+deny from IP_ADDRESS_1
+deny from IP_ADDRESS_2
+allow from all
+</Limit>
+
+# Disable directory browsing
+Options All -Indexes
+
+# Disable access to all file types except the following
+Order deny,allow
+Deny from all
+<Files ~ ".(xml|css|js|jpe?g|png|gif|pdf|docx|rtf|odf|zip|rar)$">
+Allow from all
+</Files>
+
+# Deny access to all .htaccess files
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
+#Protect the .htaccess
+<files .htaccess="">
+order allow,deny
+deny from all
+</files>
